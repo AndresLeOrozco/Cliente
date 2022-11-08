@@ -1,5 +1,7 @@
 package Presentacion;
 
+import java.net.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,7 +53,15 @@ public class LogIn extends JFrame{
     }
 
     public static void main(String[] args) {
-        LogIn lo = new LogIn();
+        InetAddress ia;
+        String ip;
+        try {
+            ia = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+        ip = ia.toString();
+        System.out.println(ia);
     }
 
 }
